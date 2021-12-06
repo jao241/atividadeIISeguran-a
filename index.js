@@ -8,26 +8,26 @@ const port = 3001;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: false}));
 
 app.get("/", (req, res)=>{
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(__dirname + "/html/index.html");
 })
 
-app.get("/show", (req, res)=>{
+app.post("/autenticar", (req, res)=>{
     const { username, password } = req.body;
     const passwordHash = MD5(password);
-    const user = db.users.filter((item)=>{
-        if(item.username == username && item.password == password)
-        return item
-        else if(item.username == username && item.password == passwordHash)
-        return item
+    const database = db.users;
+    const user = database.filter((item)=>{
+        if(item.username == username && item.password == password) return item
+        else if(item.username == username && item.password == passwordHash) return item
     });
-    res.json({
-        password,
-        passwordHash,
-        user
-    })
+    
+    if(user.length > 0){
+        res.sendFile(__dirname + "/html/sucess.html");
+    }else{
+        res.sendFile(__dirname + "/html/fail.html");
+    }
 });
 
 app.listen(port, ()=> console.log("Porta aberta em: localhost:3001"));
