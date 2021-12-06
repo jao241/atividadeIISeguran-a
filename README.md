@@ -9,10 +9,11 @@ Passo a passo para utilização da aplicação:
 - Execute um dos seguintes comandos no terminal após a clonagem do repositório
 ---
     npm install
+    ou
     yarn install
 - Execute o seguinte comando no terminal
 ---
-   node index.js
+    node index.js
 
 - No terminal lhe será retornado a porta que a aplicação estará aberta, copie e cole na barra de pesquisa do navegador
 - Utilize dos dados no arquivo senhasDB.txt para os campos de login e senha
