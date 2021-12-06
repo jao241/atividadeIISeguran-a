@@ -16,4 +16,7 @@ Passo a passo para utilização da aplicação:
     node index.js
 
 - No terminal lhe será retornado a porta que a aplicação estará aberta, copie e cole na barra de pesquisa do navegador
+---
+    Exemplo: localhost:3001
+    
 - Utilize dos dados no arquivo senhasDB.txt para os campos de login e senha
